@@ -35,7 +35,7 @@ namespace Lab2
                 double f = 1;
                 double step = 5;
                 int sgn = -1;
-                for (int = j = 1; j <= i; j++)
+                for (int j = 1; j <= i; j++)
                 {
                     f *= j;
                     step *= 5;
