@@ -12,7 +12,7 @@ namespace Lab2
             double answer = 0;
             string n1 = Console.ReadLine();
             string x1 = Console.ReadLine();
-            int n = int.Parse(n1);
+            n = int.Parse(n1);
             double x = double.Parse(x1);
             for (int i = 0; i < n; i++)
             {
