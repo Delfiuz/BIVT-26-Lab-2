@@ -10,10 +10,6 @@ namespace Lab2
         public double Task1(int n, double x)
         {            
             double answer = 0;
-            string n1 = Console.ReadLine();
-            string x1 = Console.ReadLine();
-            n = int.Parse(n1);
-            double x = double.Parse(x1);
             for (int i = 0; i < n; i++)
             {
                 double xtut = 1;
@@ -28,8 +24,6 @@ namespace Lab2
         public double Task2(int n)
         {
             double answer = 0;
-            string n1 = Console.ReadLine();
-            double n = double.Parse(n1);
             for (int i = 1; i <= n; i++)
             {
                 double f = 1;
@@ -79,14 +73,6 @@ namespace Lab2
         public int Task4(int a, int h, int L)
         {
             int answer = 0;
-            string a1 = Console.ReadLine();
-            string h1 = Console.ReadLine();
-            string L1 = Console.ReadLine();
-            string n1 = Console.ReadLine();
-            int a = int.Parse(a1);
-            int h = int.Parse(a1);
-            int L = int.Parse(a1);
-            int n = int.Parse(a1);
             int s = 0;
             for (int i = 0; i < n; i++)
             {
@@ -103,8 +89,6 @@ namespace Lab2
             double answer = 0;
             double ch = 0;
             double zn = 1;
-            string x1 = Console.ReadLine();
-            double x = double.Parse(x1);
             double elem = ch/zn;
             int i = 1;
             while (true)
@@ -124,12 +108,6 @@ namespace Lab2
         public int Task6(int h, int S, int L)
         {
             int answer = 0;
-            string h1 = Console.ReadLine();
-            string S1 = Console.ReadLine();
-            string L1 = Console.ReadLine();
-            int h = int.Parse(h1);
-            int S = int.Parse(S1);
-            int L = int.Parse(L1);
             int k = 1;
             while (true)
             {
@@ -148,10 +126,6 @@ namespace Lab2
             double a = 0;
             int b = 0;
             int c = 0;
-            string S1 = Console.ReadLine();
-            string I1 = Console.ReadLine();
-            double S = double.Parse(S1);
-            double I = double.Parse(I1);
             for (int i = 0; i < 7; i++)
             {
                 a += S;
@@ -171,12 +145,6 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
-            string a1 = Console.ReadLine();
-            string b1 = Console.ReadLine();
-            string h1 = Console.ReadLine();
-            double a = double.Parse(a1);
-            double b = double.Parse(b1);
-            double c = double.Parse(c1);
             for (double x = a; x <= b; x += h)
             {
                 int i = 1;
