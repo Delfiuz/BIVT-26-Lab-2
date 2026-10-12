@@ -29,7 +29,7 @@ namespace Lab2
                 double f = 1;
                 double step = 5;
                 int sgn = -1;
-                for (int = j = 1; j <= i; j++)
+                for (int j = 1; j <= i; j++)
                 {
                     f *= j;
                     step *= 5;
@@ -59,8 +59,8 @@ namespace Lab2
             else
             {
                 answer = 2;
-                fibbonachi = 2;
-                fibbonachiprev = 1;
+                int = fibbonachi = 2;
+                int = fibbonachiprev = 1;
                 for (int i = 3; i < n; i++)
                 {
                     fibbonachi += fibbonachiprev;
@@ -74,7 +74,7 @@ namespace Lab2
         {
             int answer = 0;
             int s = 0;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < h; i++)
             {
                 s = a + h*i;
                 if (s <= L)
@@ -149,18 +149,18 @@ namespace Lab2
             {
                 int i = 1;
                 double ssum = 0;
+                double s = 0;
                 while (s > 0.0001)
                 {
                     double xtut = x;
                     int itut = 1;
-                    double s = 0;
                     for (int j = 1; j <= i; j++)
                     {
                         xtut *= x;
                         itut *= j;
                     }
                     s = (2*i+1)*xtut/itut;
-                    ssumm += s;
+                    ssum += s;
                 }
                 SS += ssum;
                 SY = SY + (1+2*x*x)*Math.Pow(Math.Exp(), x*x);
