@@ -8,117 +8,85 @@ namespace Lab2
     {
         const double E = 0.0001;
         public double Task1(int n, double x)
-        {            
+        {
             double answer = 0;
-            for (int i = 0; i < n; i++)
+            double p = 1;
+            for (int i = 1; i <= n; i++)
             {
-                double xtut = 1;
-                for (int j = 0; j < i; j++)
-                {
-                    xtut *= x;
-                }
-                answer += Math.Sin(x*(i+1))/xtut;
+                answer += Math.Sin(x * i) / p;
+                p *= x;
             }
             return answer;
         }
         public double Task2(int n)
         {
             double answer = 0;
+            double p = 5;
+            double q = -1; 
+            double w = 1;
             for (int i = 1; i <= n; i++)
             {
-                double f = 1;
-                double step = 5;
-                int sgn = -1;
-                for (int j = 1; j <= i; j++)
-                {
-                    f *= j;
-                    step *= 5;
-                    sgn *= -1;
-                }
-                answer += sgn*(step/f);
+                w *= i;
+                answer += q*(p/w);
+                p *= 5;
+                q *= -1;
             }
             return answer;
         }
         public long Task3(int n)
         {
             long answer = 0;
-            string n1 = Console.ReadLine();
-            int n = int.Parse(n1);
-            if (n == 1)
+            long a = 0;
+            long b = 1;
+            long c = 0;
+            for (int i = 0; i < n; i++)
             {
-                answer = 1;
-            }          
-            if (n == 2)
-            {
-                answer = 1;
+                answer += a;
+                c = a+b;
+                a = b;
+                b = c;
             }
-            if (n == 3)
-            {
-                answer = 2;
-            }    
-            else
-            {
-                answer = 2;
-                int fibbonachi = 2;
-                int fibbonachiprev = 1;
-                for (int i = 3; i < n; i++)
-                {
-                    fibbonachi += fibbonachiprev;
-                    fibbonachiprev = fibbonachi-fibbonachiprev;
-                    answer += fibbonachi;
-                }
-            }   
             return answer;
         }
         public int Task4(int a, int h, int L)
         {
             int answer = 0;
             int s = 0;
-            for (int i = 0; i < h; i++)
+
+            for (int i = 0; s + (a + h * i) <= L; i++)
             {
-                s = a + h*i;
-                if (s <= L)
-                {
-                    answer ++;
-                }
+                s += a + h * i;
+                answer += 1;
             }
             return answer;
         }
         public double Task5(double x)
         {
             double answer = 0;
-            double ch = 0;
+            double  ch = 0;
             double zn = 1;
-            double elem = ch/zn;
+            double elem = ch / zn;
             int i = 1;
-            while (true)
+            do
             {
                 ch += i;
                 zn *= x;
                 answer += elem;
-                elem = ch/zn;
-                i ++;
-                if (elem <= 0.0001)
-                {
-                    break;
-                }
+                elem = ch / zn;
+                
+                i++;
             }
+            while (elem > 0.0001);
             return answer;
         }
         public int Task6(int h, int S, int L)
         {
             int answer = 0;
-            int k = 1;
-            while (true)
-            {
-                S *= 2;
-                if (S >= L)
+            while  (S < L)
                 {
-                    break;
-                }
-                k ++;
+                answer+=h;
+                S = S * 2;
             }
-            answer = k*h;
             return answer;
         }
         public (double a, int b, int c) Task7(double S, double I)
@@ -126,44 +94,48 @@ namespace Lab2
             double a = 0;
             int b = 0;
             int c = 0;
-            for (int i = 0; i < 7; i++)
+            double d = 0;
+            int i = 0;
+            int w = 5;
+            double ansA=0;
+            int ansB=0;
+            while (i < 7 || ansB == 0 || S <= 42)
             {
                 a += S;
-                S *= 1+(I/100);
-                if (a >= 100)
-                {
-                    b = i;
-                }
-                if (S > 42)
-                {
-                    c = i;
-                }
+                b++;
+                i++;
+
+                if (i == 7) ansA = a;
+                if (a >= 100 && ansB == 0) ansB = b;
+                if (S <= 42) c++;
+
+                d = S * (1 + I / 100);
+                S = d;
             }
-            return (a, b, c);
+            return (ansA, ansB, c);
         }
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
-            for (double x = a; x <= b; x += h)
+            for (double x = a; x <= b + E; x += h)
             {
-                int i = 1;
-                double ssum = 0;
                 double s = 0;
-                while (s > 0.0001)
+                double p = 1;
+                double f = 1;
+                double elem = 1;
+                int i = 0;
+                while (Math.Abs(elem) >= E)
                 {
-                    double xtut = x;
-                    int itut = 1;
-                    for (int j = 1; j <= i; j++)
-                    {
-                        xtut *= x;
-                        itut *= j;
-                    }
-                    s = (2*i+1)*xtut/itut;
-                    ssum += s;
+                    s += elem;
+                    i++;
+                    p *= x * x;
+                    f *= i;
+                    elem = (2 * i + 1) * p / f;
                 }
-                SS += ssum;
-                SY = SY + (1+2*x*x)*Math.Pow(Math.Exp(), x*x);
+                s += elem;
+                SS += s;
+                SY += (1 + 2 * x * x) * Math.Exp(x * x);
             }
             return (SS, SY);
         }
